@@ -1,0 +1,14 @@
+{
+    "petNames": [
+        "Rambo", "Spot", "Whiskers"
+    ],
+    "sexes": ["m", "f"],
+    "petAges": [1, 2, 3, 4, 5, 6],
+    "petPersonalities": [
+        "calm", "playful", "troublesome", "scared"
+    ],
+    "dogSizes": ["s", "m", "l"],
+    "familySizes": [1, 2, 3, 4, 5],
+    "familyWants": ["cat", "dog"],
+    "familyHousing": ["small appartment", "large appartment", "house without garden", "house with garden"]
+}

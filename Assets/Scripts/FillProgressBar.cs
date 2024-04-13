@@ -10,7 +10,7 @@ public class FillProgressBar : MonoBehaviour
     [SerializeField] private int numberOfAdoptionsToday;
     [SerializeField] private GameObject fill;
     [SerializeField] private GameObject percentage;
-    private int adoptionsCompleted = 1;
+    private int adoptionsCompleted = 0;
     private UnityEngine.UI.Image fillImage;
     private TextMeshProUGUI percentageText;
 
@@ -25,7 +25,7 @@ public class FillProgressBar : MonoBehaviour
     void Update()
     {
         float percentsOfAdoptionsComplete = adoptionsCompleted * 100 / numberOfAdoptionsToday;
-        fillImage.fillAmount = percentsOfAdoptionsComplete;
+        fillImage.fillAmount = percentsOfAdoptionsComplete / 100;
         percentageText.text = percentsOfAdoptionsComplete.ToString() + "%";
     }
 }

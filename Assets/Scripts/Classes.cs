@@ -7,16 +7,15 @@ public class Classes : MonoBehaviour
     public abstract class Pet
     {
         //properties
-        public string name { get; set; }
-        public char sex { get; set; }
-        public byte age { get; set; }
-        public bool needsGarden { get; set; }
-        public bool okChildren { get; set; }
-        public bool okCats { get; set; }
-        public bool okDogs { get; set; }
-        public string personality { get; set; }
+        public string Name { get; set; }
+        public char Sex { get; set; }
+        public byte Age { get; set; }
+        public bool NeedsGarden { get; set; }
+        public bool OkChildren { get; set; }
+        public bool OkCats { get; set; }
+        public bool OkDogs { get; set; }
+        public string Personality { get; set; }
 
-        
         
         /*public abstract void getToKnow()
         {
@@ -28,21 +27,32 @@ public class Classes : MonoBehaviour
     {
         public Dog(string name, char sex, char size)
         {
-            this.name = name;
-            this.sex = sex;
-            this.size = size;
+            this.Name = name;
+            this.Sex = sex;
+            this.Size = size;
         }
 
         //properties
-        public char size { get; set; }
+        public char Size { get; set; }
+
+        //methods
+        public void AddDog(string name, char sex, char size)
+        {
+            DataManager.Instance.refugePets.Add(new Dog(name, sex, size));
+        }
     }
 
     public class Cat : Pet
     {
         public Cat(string name, char sex)
         {
-            this.name = name;
-            this.sex = sex;
+            this.Name = name;
+            this.Sex = sex;
+        }
+
+        public void AddCat(string name, char sex)
+        {
+            DataManager.Instance.refugePets.Add(new Cat(name, sex));
         }
     }
 
@@ -50,18 +60,36 @@ public class Classes : MonoBehaviour
     {
         public Family(Pet[] pets, byte size, byte children, string[] want, string housing)
         {
-            this.pets = pets;
-            this.size = size;
-            this.children = children;
-            this.want = want;
-            this.housing = housing;
+            this.Pets = pets;
+            this.Size = size;
+            this.Children = children;
+            this.Want = want;
+            this.Housing = housing;
         }
 
         //properties
-        public Pet[] pets { get; set; }
-        public byte size { get; }
-        public byte children { get; }
-        public string[] want { get; }
-        public string housing { get; }
+        public Pet[] Pets { get; set; }
+        public byte Size { get; }
+        public byte Children { get; }
+        public string[] Want { get; }
+        public string Housing { get; }
+    }
+
+    [System.Serializable]
+    public class Possibilites
+    {
+        public List<string> PetNames;
+        public List<char> Sexes;
+        public List<int> PetAges;
+        public List<string> PetPersonalities;
+        public List<char> DogSizes;
+        public List<int> FamilySizes;
+        public List<string> FamilyWant;
+        public List<string> FamilyHousing;
+
+        /*public static Possibilites getFromJSON(string jsonString)
+        {
+            return JsonUtility.FromJson<Possibilites>(jsonString);
+        }*/
     }
 }
