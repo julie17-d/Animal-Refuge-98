@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Classes : MonoBehaviour
 {
-    abstract class Pet
+    public abstract class Pet
     {
         //properties
         public string name { get; set; }
@@ -16,18 +16,21 @@ public class Classes : MonoBehaviour
         public bool okDogs { get; set; }
         public string personality { get; set; }
 
-        public abstract void getToKnow()
+        
+        
+        /*public abstract void getToKnow()
         {
 
-        }
+        }*/
     }
 
     public class Dog : Pet
     {
-        public Dog(string name, char sex)
+        public Dog(string name, char sex, char size)
         {
-            name = name;
-            sex = sex;
+            this.name = name;
+            this.sex = sex;
+            this.size = size;
         }
 
         //properties
@@ -38,8 +41,8 @@ public class Classes : MonoBehaviour
     {
         public Cat(string name, char sex)
         {
-            name = name;
-            sex = sex;
+            this.name = name;
+            this.sex = sex;
         }
     }
 
@@ -47,18 +50,18 @@ public class Classes : MonoBehaviour
     {
         public Family(Pet[] pets, byte size, byte children, string[] want, string housing)
         {
-            pets = pets;
-            size = size;
-            children = children;
-            want = want;
-            housing = housing;
+            this.pets = pets;
+            this.size = size;
+            this.children = children;
+            this.want = want;
+            this.housing = housing;
         }
 
         //properties
         public Pet[] pets { get; set; }
-        public byte size { get; set; }
-        public byte children { get; set; }
-        public string[] want { get; set; }
-        public string housing { get; set; }
+        public byte size { get; }
+        public byte children { get; }
+        public string[] want { get; }
+        public string housing { get; }
     }
 }
