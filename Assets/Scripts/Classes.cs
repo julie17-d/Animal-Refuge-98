@@ -9,12 +9,13 @@ public class Classes : MonoBehaviour
         //properties
         public string Name { get; set; }
         public char Sex { get; set; }
-        public byte Age { get; set; }
+        public int Age { get; set; }
         public bool NeedsGarden { get; set; }
         public bool OkChildren { get; set; }
         public bool OkCats { get; set; }
         public bool OkDogs { get; set; }
         public string Personality { get; set; }
+        public char Size { get; set; }
 
         
         /*public abstract void getToKnow()
@@ -33,12 +34,17 @@ public class Classes : MonoBehaviour
         }
 
         //properties
-        public char Size { get; set; }
+        //public char Size { get; set; }
 
         //methods
         public void AddDog(string name, char sex, char size)
         {
             DataManager.Instance.refugePets.Add(new Dog(name, sex, size));
+        }
+
+        public void AddDog(Dog dog)
+        {
+            DataManager.Instance.refugePets.Add(dog);
         }
     }
 
@@ -84,7 +90,7 @@ public class Classes : MonoBehaviour
         public List<string> PetPersonalities;
         public List<char> DogSizes;
         public List<int> FamilySizes;
-        public List<string> FamilyWant;
+        public List<string> FamilyWants;
         public List<string> FamilyHousing;
 
         /*public static Possibilites getFromJSON(string jsonString)
